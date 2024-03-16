@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Checker</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <div class="question-section">
+            <h2></h2>
+            <h2>I am a well-known word from Ashneer Grover.</h2>
+            <h2></h2>
+            <h2></h2>
+            <p></p>
+        </div>
+        <div class="answer-section">
+            <input type="text" id="answerInput" placeholder="Type your answer here...">
+            <button onclick="checkAnswer()">Check Answer</button>
+            <div id="result"></div>
+            <div id="try-again">Try Again!</div>
+        </div>
+    </div>
+
+    <script>
+       function checkAnswer() {
+    var userInput = document.getElementById('answerInput').value.toLowerCase();
+    var answers = ["Doglapan", "Doglapan ", "MMM"]; 
+    var found = false;
+
+    for (var i = 0; i < answers.length; i++) {
+        if (userInput === answers[i].toLowerCase()) {
+            found = true;
+            break;
+        }
+    }
+
+    if (found) {
+        document.getElementById('result').innerHTML = "Your Answer is Correct! Head to CR210.";
+        document.getElementById('result').className = 'correct'; 
+        document.getElementById('result').style.display = 'block'; 
+        document.getElementById('try-again').style.display = 'none'; 
+    } else {
+        document.getElementById('result').innerHTML = "Try Again!";
+        document.getElementById('result').className = 'incorrect'; 
+        document.getElementById('result').style.display = 'block'; 
+        document.getElementById('try-again').style.display = 'none'; 
+    }
+}
+ </script>
+</body>
+</html>
